@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Meal Planner</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>🍳 AI Meal Planner</h1>
+        
+        <form method="POST" class="meal-form">
+            <div class="form-group">
+                <label for="dietary">Dietary Preferences:</label>
+                <select id="dietary" name="dietary">
+                    <option value="none">None</option>
+                    <option value="vegetarian">Vegetarian</option>
+                    <option value="vegan">Vegan</option>
+                    <option value="gluten-free">Gluten Free</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="budget">Daily Budget ($):</label>
+                <input type="number" id="budget" name="budget" step="0.01" min="0" required>
+            </div>
+
+            <div class="form-group">
+                <label for="calories">Calorie Goal:</label>
+                <input type="number" id="calories" name="calories" min="0" required>
+            </div>
+
+            <div class="form-group">
+                <label for="time">Max Prep Time:</label>
+                <input type="text" id="time" name="time" placeholder="e.g., 30 mins" required>
+            </div>
+
+            <button type="submit">Generate Meal Plan</button>
+        </form>
+
+        {% if error %}
+        <div class="error-message">
+            ⚠️ {{ error }}
+        </div>
+        {% endif %}
+
+        {% if result %}
+        <div class="meal-plan">
+            <div class="budget-summary">
+                <h2>💰 Remaining Budget: ${{ "%.2f"|format(remaining_budget) }}</h2>
+            </div>
+
+            {% for meal_type, meal_data in result.items() %}
+            {% if meal_type != 'remaining_budget' %}
+            <section class="meal-category">
+                <h2>🍽️ {{ meal_type|capitalize }}</h2>
+                <div class="meal-grid">
+                    {% for option in meal_data.options %}
+                    <div class="meal-card">
+                        <h3>{{ option.name }}</h3>
+                        <p class="description">{{ option.description }}</p>
+                        <div class="details">
+                            <div class="detail-item">
+                                <span>💰 Cost:</span>
+                                <span>${{ option.cost }}</span>
+                            </div>
+                            <div class="detail-item">
+                                <span>⏱️ Prep:</span>
+                                <span>{{ option.prep_time }}</span>
+                            </div>
+                            {% if option.calories %}
+                            <div class="detail-item">
+                                <span>🔥 Calories:</span>
+                                <span>{{ option.calories }}</span>
+                            </div>
+                            {% endif %}
+                        </div>
+                        {% if option.ingredients %}
+                        <div class="ingredients">
+                            <strong>🥕 Ingredients:</strong>
+                            <ul>
+                                {% for ingredient in option.ingredients %}
+                                <li>{{ ingredient }}</li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                        {% endif %}
+                    </div>
+                    {% endfor %}
+                </div>
+            </section>
+            {% endif %}
+            {% endfor %}
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
