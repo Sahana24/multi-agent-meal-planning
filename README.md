@@ -4,13 +4,13 @@
 The Multi-Agent Meal Planning System is a Flask-based application that generates meal plans based on **user dietary preferences, budget constraints, and calorie goals**. It utilizes multiple **AI-driven agents** to suggest meals while ensuring **budget and dietary compliance**.
 
 ## Features
-✅ **AI-Powered Meal Planning** - Generates meal options dynamically  
-✅ **Supports Multiple Diets** - Vegetarian, Vegan, Gluten-Free  
-✅ **Budget Management** - Ensures meals fit within the budget  
-✅ **Calorie Control** - Limits meals to user-specified calorie intake  
-✅ **Error Handling & Auto-Retries** - Adjusts meals dynamically  
-✅ **Multi-Meal Support** - Handles **breakfast, lunch, dinner, and snacks**
-✅ **Shopping List Generation** - Instantly creates a consolidated shopping list for all planned meals
+- ✅ **AI-Powered Meal Planning** - Generates meal options dynamically  
+- ✅ **Supports Multiple Diets** - Vegetarian, Vegan, Gluten-Free  
+- ✅ **Budget Management** - Ensures meals fit within the budget  
+- ✅ **Calorie Control** - Limits meals to user-specified calorie intake  
+- ✅ **Error Handling & Auto-Retries** - Adjusts meals dynamically  
+- ✅ **Multi-Meal Support** - Handles **breakfast, lunch, dinner, and snacks**
+- ✅ **Shopping List Generation** - Instantly creates a consolidated shopping list for all planned meals
 
 ## User Interface Preview
 ### **Home Page**
