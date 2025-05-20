@@ -9,7 +9,7 @@ The Multi-Agent Meal Planning System is a Flask-based application that generates
 ✅ **Budget Management** - Ensures meals fit within the budget  
 ✅ **Calorie Control** - Limits meals to user-specified calorie intake  
 ✅ **Error Handling & Auto-Retries** - Adjusts meals dynamically  
-✅ **Multi-Meal Support** - Handles **breakfast, lunch, dinner, and snacks** 
+✅ **Multi-Meal Support** - Handles **breakfast, lunch, dinner, and snacks**
 ✅ **Shopping List Generation** - Instantly creates a consolidated shopping list for all planned meals
 
 ## User Interface Preview
@@ -34,21 +34,24 @@ multi_agent_meal_planning/
 │   ├── dinner_agent.py
 │   ├── snack_agent.py
 │   ├── budget_agent.py
+│   ├── shopping_list_agent.py   # Agent for shopping list generation
 │── tools/                   # Utility functions
 │   ├── budget_checker.py
 │── templates/               # HTML templates for Flask
 │   ├── index.html
+│   ├── shopping_list.html   # Shopping list page
 │── static/                  # Frontend assets (CSS, JS, images)
 │   ├── styles.css
-    ├── AI_meal_planner.png
+│   ├── AI_meal_planner.png
 │   ├── breakfast_lunch_options.png
 │   ├── dinner_snack_options.png
+│   ├── shopping_list.png    # Shopping list UI preview
 │── config.py                # API & model configurations
 │── app.py                   # Main Flask application
 │── .env                     # Environment variables (API keys)
-│── requirements.txt          # Python dependencies
-│── .gitignore                # Git ignore rules
-│── README.md                 # Project documentation
+│── requirements.txt         # Python dependencies
+│── .gitignore               # Git ignore rules
+│── README.md                # Project documentation
 ```
 
 ## Installation
@@ -97,6 +100,7 @@ The app will be available at **http://127.0.0.1:5000**.
 - **🍲 DinnerAgent** - Plans dinner
 - **🍎 SnackAgent** - Provides snack suggestions
 - **💰 BudgetAgent** - Ensures meals fit within the budget
+- **🛒 ShoppingListAgent** - Generates a consolidated shopping list from meal plans
 
 ## Shopping List Feature
 - After generating a meal plan, click the **"View Shopping List"** button below your results.
