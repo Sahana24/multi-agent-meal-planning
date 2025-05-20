@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping List</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+<div class="container mt-4">
+    <h1 class="mb-4">Shopping List</h1>
+    {% if shopping_list %}
+    <div class="row mb-4">
+        <div class="col">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Summary</h5>
+                    <p>Total Items: {{ shopping_list.total_items }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        {% for category, items in shopping_list.categorized_list.items() %}
+        {% if items %}
+        <div class="col-md-6 mb-4">
+            <div class="card">
+                <div class="card-header bg-primary text-white">
+                    <h5 class="mb-0">{{ category|title }}</h5>
+                </div>
+                <div class="card-body">
+                    <ul class="list-group list-group-flush">
+                        {% for item in items %}
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <div>
+                                <span class="fw-bold">{{ item.name }}</span>
+                                <br>
+                                <small class="text-muted">{{ item.quantity }} {{ item.unit }}</small>
+                            </div>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+        {% endfor %}
+    </div>
+
+    <div class="row mt-4">
+        <div class="col">
+            <div class="btn-group" role="group">
+                <button type="button" class="btn btn-primary" onclick="window.print()">
+                    <i class="fas fa-print"></i> Print List
+                </button>
+                <button type="button" class="btn btn-success" onclick="exportToPDF()">
+                    <i class="fas fa-file-pdf"></i> Export to PDF
+                </button>
+                <button type="button" class="btn btn-info" onclick="shareList()">
+                    <i class="fas fa-share-alt"></i> Share List
+                </button>
+            </div>
+        </div>
+    </div>
+    {% elif error %}
+    <div class="error-message">
+        ⚠️ {{ error }}
+    </div>
+    {% endif %}
+</div>
+
+<script>
+function exportToPDF() {
+    // TODO: Implement PDF export functionality
+    alert('PDF export coming soon!');
+}
+
+function shareList() {
+    // TODO: Implement sharing functionality
+    alert('Sharing coming soon!');
+}
+</script>
+</body>
+</html> 

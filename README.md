@@ -10,6 +10,7 @@ The Multi-Agent Meal Planning System is a Flask-based application that generates
 ✅ **Calorie Control** - Limits meals to user-specified calorie intake  
 ✅ **Error Handling & Auto-Retries** - Adjusts meals dynamically  
 ✅ **Multi-Meal Support** - Handles **breakfast, lunch, dinner, and snacks** 
+✅ **Shopping List Generation** - Instantly creates a consolidated shopping list for all planned meals
 
 ## User Interface Preview
 ### **Home Page**
@@ -20,6 +21,9 @@ The Multi-Agent Meal Planning System is a Flask-based application that generates
 
 ### **Dinner & Snacks Options**
 ![Dinner & Snacks](static/dinner_snack_options.png)
+
+### **Shopping List**
+![Shopping List](static/shopping_list.png)
 
 ## Project Structure
 ```
@@ -83,7 +87,9 @@ The app will be available at **http://127.0.0.1:5000**.
 2️⃣ **Set budget and calorie limit**  
 3️⃣ **Submit the form**  
 4️⃣ **View AI-generated meal plans**  
-5️⃣ **Adjust constraints if needed**  
+5️⃣ **Click 'View Shopping List' to see all required ingredients**  
+6️⃣ **Print or export your shopping list as needed**  
+7️⃣ **Adjust constraints if needed**  
 
 ## API Agents
 - **🥞 BreakfastAgent** - Generates breakfast options
@@ -91,3 +97,8 @@ The app will be available at **http://127.0.0.1:5000**.
 - **🍲 DinnerAgent** - Plans dinner
 - **🍎 SnackAgent** - Provides snack suggestions
 - **💰 BudgetAgent** - Ensures meals fit within the budget
+
+## Shopping List Feature
+- After generating a meal plan, click the **"View Shopping List"** button below your results.
+- The shopping list page displays all required ingredients, grouped by category, with quantities.
+- You can print or export the list for easy grocery shopping.

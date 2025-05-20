@@ -93,6 +93,30 @@
             {% endif %}
             {% endfor %}
         </div>
+        {% if shopping_list %}
+        <div class="shopping-list-link" style="text-align:center; margin-top: 2em;">
+            <a href="{{ url_for('view_shopping_list') }}" class="btn btn-outline-success big-shopping-list-btn">
+                🛒 View Shopping List
+            </a>
+        </div>
+        <style>
+        .big-shopping-list-btn {
+            font-size: 1.5em;
+            padding: 1em 2.5em;
+            font-weight: bold;
+            border-width: 3px;
+            background: #28a745;
+            color: #fff !important;
+            border-radius: 10px;
+            box-shadow: 0 4px 16px rgba(40,167,69,0.15);
+            transition: background 0.2s, color 0.2s;
+        }
+        .big-shopping-list-btn:hover {
+            background: #218838;
+            color: #fff !important;
+        }
+        </style>
+        {% endif %}
         {% endif %}
     </div>
 </body>
